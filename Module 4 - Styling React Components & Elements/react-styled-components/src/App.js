@@ -1,6 +1,22 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
 import "./App.css";
 import Person from "./Person/Person";
+
+const StyledButton = styled.button`
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lightgreen;
+    color: black;
+  }
+`;
 
 class App extends Component {
   state = {
@@ -47,16 +63,6 @@ class App extends Component {
   };
 
   render() {
-    // Inline Styling
-    const style = {
-      backgroundColor: "green",
-      color: "white",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "pointer",
-    };
-
     let persons = null;
 
     if (this.state.showPersons) {
@@ -75,7 +81,7 @@ class App extends Component {
           })}
         </div>
       );
-      style.backgroundColor = "red";
+      // style.backgroundColor = "red"; // Raising error 'style' not found
     }
 
     // const classes = ["text-red", "bold"].join(" ");
@@ -95,9 +101,9 @@ class App extends Component {
         <h1>Hi, I'm a React App</h1>
         {/* <button onClick={this.switchNameHandler}>Switch Name</button> */}
         <p className={classes.join(" ")}>Development made easy!</p>
-        <button style={style} onClick={this.togglePersonHandler}>
+        <StyledButton onClick={this.togglePersonHandler}>
           Toggle Button
-        </button>
+        </StyledButton>
         {persons}
       </div>
     );
