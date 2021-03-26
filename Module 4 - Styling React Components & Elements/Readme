@@ -2,3 +2,15 @@ npm install --save radium
 npm install --save --force radium
 npm install --save styled-components
 npm run eject
+
+
+
+
+----
+
+Note:
+
+Tweaks For file webpack.config.dev.js or webpack.config.prod.js
+
+modules: true,
+localIdentName: "[name]__[local]__[hash:base64:5]"
