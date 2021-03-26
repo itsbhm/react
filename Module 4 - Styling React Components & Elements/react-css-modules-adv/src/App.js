@@ -49,7 +49,7 @@ class App extends Component {
 
   render() {
     let persons = null;
-    let btnClass = [classes.Button];
+    let btnClass = "";
 
     if (this.state.showPersons) {
       persons = (
@@ -68,7 +68,7 @@ class App extends Component {
         </div>
       );
       // style.backgroundColor = "red"; // Raising error 'style' not found
-      btnClass.push(classes.Red);
+      btnClass = classes.Red;
     }
 
     // const classes = ["text-red", "bold"].join(" ");
@@ -87,10 +87,7 @@ class App extends Component {
         <h1>Hi, I'm a React App</h1>
         {/* <button onClick={this.switchNameHandler}>Switch Name</button> */}
         <p className={assignedClasses.join(" ")}>Development made easy!</p>
-        <button
-          className={btnClass.join(" ")}
-          onClick={this.togglePersonHandler}
-        >
+        <button className={btnClass} onClick={this.togglePersonHandler}>
           Toggle Button
         </button>
         {persons}
