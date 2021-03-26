@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./App.css";
+import classes from "./App.css";
 import Person from "./Person/Person";
 
 class App extends Component {
@@ -49,6 +49,7 @@ class App extends Component {
 
   render() {
     let persons = null;
+    let btnClass = [classes.Button];
 
     if (this.state.showPersons) {
       persons = (
@@ -67,26 +68,29 @@ class App extends Component {
         </div>
       );
       // style.backgroundColor = "red"; // Raising error 'style' not found
+      btnClass.push(classes.Red);
     }
 
     // const classes = ["text-red", "bold"].join(" ");
 
-    const classes = [];
-
+    const assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push("text-red"); // classes ['text-red']
+      assignedClasses.push(classes.red); // assignedClasses ['red']
     }
 
     if (this.state.persons.length <= 1) {
-      classes.push("bold"); // classes ['text-red', 'bold']
+      assignedClasses.push(classes.bold); // assignedClasses ['red', 'bold']
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I'm a React App</h1>
         {/* <button onClick={this.switchNameHandler}>Switch Name</button> */}
-        <p className={classes.join(" ")}>Development made easy!</p>
-        <button className="button" onClick={this.togglePersonHandler}>
+        <p className={assignedClasses.join(" ")}>Development made easy!</p>
+        <button
+          className={btnClass.join(" ")}
+          onClick={this.togglePersonHandler}
+        >
           Toggle Button
         </button>
         {persons}
